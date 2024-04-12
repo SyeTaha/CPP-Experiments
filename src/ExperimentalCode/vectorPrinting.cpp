@@ -34,6 +34,9 @@ void printTranspose(std::vector<int> vec) {
     }
 }
 
+
+
+//Print Col one by one
 void Animate(std::vector<std::vector<int>> vec, int delay){
     
     int numOfCol = 0;
@@ -82,9 +85,9 @@ int main(){
                                4, 5, 6, 
                                7, 8, 9};
 
-    std::vector<std::vector<int>> myVec2 = { {  1,  2,  3},
-                                             {  4,  5,  6},
-                                             {  7,  8,  9}};
+    std::vector<std::vector<int>> myVec2 = { { 1, 2, 3},
+                                             { 4, 5, 6},
+                                             { 7, 8, 9}};
 
     std::vector<std::vector<char>> myVec3 = { { '1',  '2',  '3'},
                                               { ' ',  ' ',  ' '},
@@ -92,11 +95,11 @@ int main(){
 
 
 
-    //Animate(myVec2, 0);
+    Animate(myVec2, 100);
     //print(myVec3);
-    filter(myVec3);
+    //filter(myVec3);
     //std::cout << myVec3.size() << " " << myVec3[0].size();
-    print(myVec3);
+    //print(myVec3);
     //printTranspose(myVec1);
     return 0;
 }
