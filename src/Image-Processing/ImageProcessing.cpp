@@ -4,18 +4,41 @@
 #include<cmath>
 #include<ctime>
 #include<random>
+#include<chrono>
+#include<thread>
 
-const int Height = 1080;
-const int Width = 1920;
+const int Height = 100;
+const int Width = 100;
 
 class ShapeMaker{
     std::string filename;
 public:
     ShapeMaker(const std::string& name) : filename(name){}
 
+    void Animate(std::vector<std::vector<int>> vec, int delay){
+    int numOfCol = 0;
+    while(numOfCol <= vec[0].size()){
+        for(size_t row = 0; row < vec.size(); row++){
+            for(int col = 0; col < numOfCol; col++){
+                std::cout << vec[row][col] << " ";
+            }
+            std::cout << std::endl;
+            
+        }   
+        std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+        system("cls");
+        numOfCol++;
+    }
+}
+
     void drawCircle(int a, int b, int r){
+
+        std::string frame =  filename + ".ppm";
         std::ofstream image;
-        image.open(filename, std::ios::trunc);
+        int numOfLine = 0;
+        const int maxLines = 10000;
+        int RenderedLines = 0;
+        image.open(frame, std::ios::trunc);
         if(image.is_open()){
             image << "P3" << std::endl;
             image << Width << " " << Height << std::endl;
@@ -24,10 +47,13 @@ public:
                 for(int x = 0; x < Width; x++){
                     if(pow(x - a, 2) + pow(y - b, 2) <= pow(r, 2)) image << "255 0 0" << std::endl;
                     else image << "0 23 0" << std::endl;
+                    numOfLine++;
+                    RenderedLines++;
                 }
             }
         }
         image.close();
+
     }
 
     void DrawTanPatt(int a, int b, int r){
@@ -104,6 +130,7 @@ public:
     }
 
    void Test(int a, int b, int r){
+        filename += ".ppm";
 
         std::ofstream image;
         image.open(filename, std::ios::trunc);
@@ -142,11 +169,11 @@ public:
 
 int main(){
 
-    std::string filename = "Tests";
+    std::string filename = "Rendered/Tests";
 
-    ShapeMaker m1(filename + ".ppm");
-    m1.Test(Width/2, Height/2, 100);
-    //m1.convertToPNG(filename + ".png");
+    ShapeMaker m1(filename);
+    m1.drawCircle(Width/2, Height/2, 5);
+
 
     return 0;
 }
