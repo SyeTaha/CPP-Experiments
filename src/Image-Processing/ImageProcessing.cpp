@@ -7,8 +7,8 @@
 #include<chrono>
 #include<thread>
 
-const int Height = 100;
-const int Width = 100;
+const int Height = 1920;
+const int Width = 1080;
 
 class ShapeMaker{
     std::string filename;
@@ -32,13 +32,8 @@ public:
 }
 
     void drawCircle(int a, int b, int r){
-
-        std::string frame =  filename + ".ppm";
         std::ofstream image;
-        int numOfLine = 0;
-        const int maxLines = 10000;
-        int RenderedLines = 0;
-        image.open(frame, std::ios::trunc);
+        image.open(filename, std::ios::trunc);
         if(image.is_open()){
             image << "P3" << std::endl;
             image << Width << " " << Height << std::endl;
@@ -47,17 +42,17 @@ public:
                 for(int x = 0; x < Width; x++){
                     if(pow(x - a, 2) + pow(y - b, 2) <= pow(r, 2)) image << "255 0 0" << std::endl;
                     else image << "0 23 0" << std::endl;
-                    numOfLine++;
-                    RenderedLines++;
+
                 }
             }
         }
         image.close();
-
+        
     }
 
-    void DrawTanPatt(int a, int b, int r){
 
+
+    void DrawTanPatt(int a, int b, int r){
         std::ofstream image;
         image.open(filename, std::ios::trunc);
         if(image.is_open()){
@@ -70,13 +65,12 @@ public:
                     if(tan(pow(Ox, 2) + pow(Oy, 2)) <= tan(pow(r, 2))){
                         image << "0 0 0" << std::endl;
                     }
-                    else{
-                        image << "0 150 150" << std::endl;
-                    }
+                    else image << "0 150 150" << std::endl;
                 }
             }
         }
         image.close();
+        
     }
 
     void DrawSineWave(int a, int b){
@@ -123,7 +117,6 @@ public:
                         image << "0 150 150" << std::endl;
                     }
                 }
-                std::cout << "\rScanned " << y + 1 << " files" << std::flush;
             }
         }
         image.close();
@@ -169,10 +162,12 @@ public:
 
 int main(){
 
-    std::string filename = "Rendered/Tests";
+    std::string filename = "image.ppm";
 
     ShapeMaker m1(filename);
-    m1.drawCircle(Width/2, Height/2, 5);
+
+    m1.DrawTanPatt(Width/2, Height/2, 5);
+    //m1.render(0, 1000);
 
 
     return 0;
