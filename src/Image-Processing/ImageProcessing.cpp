@@ -16,20 +16,20 @@ public:
     ShapeMaker(const std::string& name) : filename(name){}
 
     void Animate(std::vector<std::vector<int>> vec, int delay){
-    int numOfCol = 0;
-    while(numOfCol <= vec[0].size()){
-        for(size_t row = 0; row < vec.size(); row++){
-            for(int col = 0; col < numOfCol; col++){
-                std::cout << vec[row][col] << " ";
-            }
-            std::cout << std::endl;
-            
-        }   
-        std::this_thread::sleep_for(std::chrono::milliseconds(delay));
-        system("cls");
-        numOfCol++;
+        int numOfCol = 0;
+        while(numOfCol <= vec[0].size()){
+            for(size_t row = 0; row < vec.size(); row++){
+                for(int col = 0; col < numOfCol; col++){
+                    std::cout << vec[row][col] << " ";
+                }
+                std::cout << std::endl;
+                
+            }   
+            std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+            system("cls");
+            numOfCol++;
+        }
     }
-}
 
     void drawCircle(int a, int b, int r){
         std::ofstream image;
@@ -50,6 +50,45 @@ public:
         
     }
 
+    bool isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i * i <= number; ++i) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    void DrawPrimeNumbers() {
+        int count = 0;
+        std::ofstream image(filename, std::ios::trunc);
+        if (!image.is_open()) {
+            std::cerr << "Error: Unable to open file " << filename << std::endl;
+            return;
+        }
+        
+        image << "P3\n";
+        image << Width << " " << Height << "\n";
+        image << "255\n";
+        
+        for (int y = 0; y < Height; ++y) {
+            for (int x = 0; x < Width; ++x) {
+                if (isPrime(y * Width + x)) {
+                    image << "0 150 150\n";
+                    count++;
+                } else {
+                    image << "0 0 0\n";
+                }
+            }
+        }
+        
+        std::cout << "Total Primes: " << count << std::endl;
+        image.close();
+    }
 
 
     void DrawTanPatt(int a, int b, int r){
@@ -166,7 +205,7 @@ int main(){
 
     ShapeMaker m1(filename);
 
-    m1.DrawTanPatt(Width/2, Height/2, 5);
+    m1.DrawPrimeNumbers();
     //m1.render(0, 1000);
 
 
