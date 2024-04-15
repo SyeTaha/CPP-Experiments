@@ -1,4 +1,4 @@
-# Animation Indexs
+# Animation Index
 
 ## 1.mp4 - Animation over the graph of tan(x)² + tan(y)² = tan(c)² - Unoptimised
 
