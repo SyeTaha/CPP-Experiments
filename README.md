@@ -6,7 +6,7 @@ This repository contains a collection of C++ experiments and projects, ranging f
 
 ## Directory Structure
 
-- **images:** Contains image results from image processing experiments.
+- **Images and Animations:** Contains image/Animation results from image processing and animating experiments.
 
 - **src:** Contains the source code for various experiments.
 
