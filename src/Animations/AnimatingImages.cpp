@@ -16,7 +16,7 @@ public:
 
     void AnimateTanPattern(int a, int b, int r) {
         const std::string outputDir = "Rendered/";
-        const int maxFrame = 1920;
+        const int maxFrame = Height;
         
         for (int frameNumber = 1; frameNumber <= maxFrame; ++frameNumber) {
             std::string frame = outputDir + std::to_string(frameNumber) + ".ppm";
@@ -53,9 +53,61 @@ public:
         }
     }
 
+    void AnimatePrimeNumbers() {
+        const std::string outputDir = "Rendered/";
+        const int maxFrame = Height;
+        
+        for (int frameNumber = 1; frameNumber <= maxFrame; ++frameNumber) {
+            std::string frame = outputDir + std::to_string(frameNumber) + ".ppm";
+            std::ofstream image(frame, std::ios::trunc);
+            
+            if (image.is_open()) {
+                image << "P3\n";
+                image << Width << " " << Height << "\n";
+                image << "255\n";
+                
+                for (int y = 0; y < Height; ++y) {
+                    if (y <= frameNumber) {
+                        for (int x = 0; x < Width; ++x) {
+                            if (isPrime(y * Width + x))
+                                image << "0 150 150\n";
+                            else
+                                image << "0 0 0\n";
+                        }
+                    } else {
+                        // Fill the remaining lines with black
+                        for (int x = 0; x < Width; ++x) {
+                            image << "0 0 0\n";
+                        }
+                    }
+                }
+                
+                std::cout << "\rRendered " << frameNumber << " frames" << std::flush;
+            } else {
+                std::cerr << "Error: Unable to open file " << frame << std::endl;
+            }
+            
+            image.close();
+        }
+    }
+
+    bool isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i * i <= number; ++i) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 
 };
+
+
 
 
 
@@ -65,9 +117,11 @@ int main(){
 
     Animator m1;
 
-    m1.AnimateTanPattern(Width/2, Height/2, 0);
+    m1.AnimatePrimeNumbers();
     //m1.render(0, 1000);
 
 
     return 0;
 }
+
+
