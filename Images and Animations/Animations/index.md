@@ -15,3 +15,11 @@
 - **Date Created:** April 15, 2024
 - **Instagram Reel:** [Link to Instagram Reel](https://www.instagram.com/reel/C5whJrOo5se/)
 - **Render Time:** 13 Minutes
+
+## PrimeNumbers.mp4 - Animation over the Prime Numbers from 0 - 2,073,599
+
+- **Filename:** PrimeNumbers.mp4
+- **Description:** This video showcases an animation over the Prime Numbers from 0 - 2,073,599.
+- **Date Created:** April 15, 2024
+- **Instagram Reel:** [Link to Instagram Reel](https://www.instagram.com/reel/C5xcAwFIaNy/)
+- **Render Time:** Untracked
