@@ -1,6 +1,6 @@
 # Animation Index
 
-## 1.mp4 - Animation over the graph of tan(x)² + tan(y)² = tan(c)² - Unoptimised
+## 1.mp4 - Animation over the graph of tan(x + y)² = tan(c)² - Unoptimised
 
 - **Filename:** 1.mp4
 - **Description:** This video showcases an animation over the graph of the equation tan(x)² + tan(y)² = tan(c)².
@@ -8,7 +8,7 @@
 - **Instagram Reel:** [Link to Instagram Reel](https://www.instagram.com/reel/C5vVj34RUP-/)
 - **Render Time:** 17 Hours
 
-## 2.mp4 - Animation over the graph of tan(x)² + tan(y)² = tan(c)² - Optimised
+## 2.mp4 - Animation over the graph of tan(x + y)² = tan(c)² - Optimised
 
 - **Filename:** 2.mp4
 - **Description:** This video showcases an animation over the graph of the equation tan(x)² + tan(y)² = tan(c)².
