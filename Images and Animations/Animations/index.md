@@ -23,3 +23,11 @@
 - **Date Created:** April 15, 2024
 - **Instagram Reel:** [Link to Instagram Reel](https://www.instagram.com/reel/C5xcAwFIaNy/)
 - **Render Time:** Untracked
+
+## TanTheta.mp4 - Animation over the graph of r = btan(aθ)
+
+- **Filename:** TanTheta.mp4
+- **Description:** This video showcases an animation over the graph r = btan(aθ) with b = 500, a 1-100
+- **Date Created:** April 22, 2024
+- **Instagram Reel:** [Link to Instagram Reel](https://www.instagram.com/reel/C6Ei8pFIvrl/)
+- **Render Time:** ~1 hour
