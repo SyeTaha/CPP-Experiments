@@ -15,5 +15,7 @@ This repository contains a collection of C++ experiments and projects, ranging f
   - **Image-Processing:** C++ code related to image processing experiments. Explore different techniques for manipulating and analyzing images.
   
   - **ExperimentalCode:** Here, you can find simplified versions of code used for experimenting and testing before implementation in the main files.
+ 
+  - **Sounds:** C++ code related to sound generation Experiments.
 
 
