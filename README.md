@@ -10,7 +10,7 @@ This repository contains a collection of C++ experiments and projects, ranging f
 
 - **src:** Contains the source code for various experiments.
 
-  - **Animations:** C++ programs for creating animations and graphical effects within the command-line interface (CLI). Experiment with various animation techniques and effects.
+  - **Animations:** C++ programs for creating animations and graphical effects including frame-by-frame animation rendering and compilation, in addition to CLI animations. Experiment with various animation techniques and effects.
   
   - **Image-Processing:** C++ code related to image processing experiments. Explore different techniques for manipulating and analyzing images.
   
